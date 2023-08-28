@@ -4,18 +4,19 @@ This is a rough port of stata's `log using` command.
 
 # How it works
 
-* Sinks output and messages to a FIFO
+* `sink()`'s output and messages to a FIFO
 * Creates a taskCallback that runs after each command that:
-  * prints out last expression
+  * deparses and prints last expression to log
   * flushes FIFO to log
 
 ## Known issues
 
 * taskCallbacks only have visibility of "successful" top level expressions;
-  1. Errored expressions will not be echo'd to log
+  1. Unsuccessful expressions will not be echo'd to log file
   2. Error messages from errored expressions are out of sync
-  3. Those expressions are already parsed, so comments have already been removed
-  4. Feel free to make your comments as colorful as you like, they won't be logged.
+  3. Those expressions are already parsed, so comments and formatting have already been removed
+    * Feel free to make your comments as colorful as you like, they won't be logged.
+  4. Probably interacts poorly with other functions that also use `sink()`.
 
 ### Example / Test case
 
