@@ -1,0 +1,10 @@
+Package: stlogging
+Type: Package
+Title: Stata-style logging
+Version: 0.1.0
+Author: Neal Fultz <nfultz@gmail.com>
+Maintainer: None <donotreply@localhost>
+Description: A `log_using` function inspired by Stata.
+License: AGPL-3
+Encoding: UTF-8
+LazyData: true
